@@ -1,0 +1,115 @@
+@use "../partials/variables" as *;
+@use "../partials/shared" as *;
+
+a {
+    & {
+        color: #118a6e;
+    }
+
+    &:hover {
+        color: #118a6e;
+    }
+
+    &.active {
+        color: white !important;
+    }
+}
+
+label {
+    font-style: italic;
+    color: #888888;
+    margin: 12px 0 3px;
+}
+
+label:after {
+    content: ":";
+}
+
+button[type="submit"], button.escape, .btn-danger {
+    float: right;
+    margin: 18px 0 0 18px;
+}
+
+.tll-container {
+    position: relative;
+}
+
+.to-identify {
+    cursor: pointer;
+    position: absolute;
+    left: -15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    border: 2px solid turquoise;
+    //background-color: turquoise;
+}
+
+.note-date, .edit-date, .edit-icon {
+    cursor: pointer;
+    color: #10917a;
+}
+
+.delete-date, .delete-icon {
+    cursor: pointer;
+    color: rgba(253, 2, 2, 0.39);
+}
+.work {
+    margin: 6px 12px 18px;
+    padding: 18px 18px;
+    width: 97%;
+    border: dashed 3px $dark-background;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 127, 0.31);
+}
+
+.btn.btn-primary {
+    background-color: $dark-background;
+}
+
+.note-container {
+    position: relative;
+}
+
+.hide-new-note {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 26px;
+    color: #888;
+    border: 1px solid #888;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.error-msg {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.73);
+    color: red;
+    border: 5px dashed red;
+    padding: 6px 12px;
+}
+
+.form-group h3 {
+    text-align: center;
+}
+
+#div-close-div-messages {
+    z-index: 100;
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    font-size: 18pt;
+    border: red solid 0;
+    color: red;
+    padding: 0 6px;
+}
+
+#div-messages {
+    position: relative;
+    margin-bottom: 12px;
+    padding: 12px;
+    border: dashed 1px turquoise;
+    background-color: #ffffe0;
+}

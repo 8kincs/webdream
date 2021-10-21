@@ -1,0 +1,12 @@
+@use "../partials/variables" as *;
+@use "../partials/shared" as *;
+
+#div-footer {
+    & {
+        border-top: $header-footer-line;
+        margin-top: 24px;
+        @include header-footer();
+        //noinspection CssUnknownTarget
+        background-image: url("/images/smaragd-keskeny.jpg");
+    }
+}

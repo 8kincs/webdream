@@ -1,21 +1,75 @@
-version: '3'
-
+# manager-2022.8kincs.hu
+version: '3.3'
 services:
-###> doctrine/doctrine-bundle ###
-  database:
-    image: postgres:${POSTGRES_VERSION:-13}-alpine
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
-      # You should definitely change the password in production
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMe}
-      POSTGRES_USER: ${POSTGRES_USER:-symfony}
-    volumes:
-      - db-data:/var/lib/postgresql/data:rw
-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./docker/db/data:/var/lib/postgresql/data:rw
-###< doctrine/doctrine-bundle ###
 
-volumes:
-###> doctrine/doctrine-bundle ###
-  db-data:
-###< doctrine/doctrine-bundle ###
+    site-warehouse:
+        build:
+            context: "./docker/site"
+        container_name: site-warehouse
+        restart: "no"
+        ports:
+            - "8004:80"
+        volumes:
+            -   type: bind
+                source: '/home/laci/Privát/Sites-2022/webdream-warehouse'
+                target: '/var/www/html'
+#           Apache virtual hosts
+            -   type: bind
+                source: './docker/site/apache2/sites-enabled'
+                target: '/etc/apache2/sites-enabled'
+#           Linux command hotkeys
+            -   type: bind
+                source: '/home/laci/.bashrc'
+                target: '/root/.bashrc'
+#                target: '/root/.bashrc'
+            -   type: bind
+                source: '/home/laci/.bc'
+                target: '/usr/local/bin/.bc'
+        environment:
+            PROJECT_ID: 'DOCKER! -> tender-2021.8kincs.hu'
+            APP_ENV: 'dev'
+            APP_DEBUG: 'true'
+
+            PHP_MEMORY_LIMIT: '2048M'
+            PHP_MAX_INPUT_VARS: '2000'
+            PHP_UPLOAD_MAX_FILESIZE: '50M'
+            PHP_POST_MAX_SIZE: '50M'
+
+            DATABASE_URL: 'mysql://warehouse:warehouse@mysql-warehouse:3306/warehouse?serverVersion=5.7'
+
+            APACHE_LOG_DIR: '/var/log'
+        extra_hosts:
+            - "warehouse.webdream.hu:127.0.0.1"
+        links:
+            - mysql-warehouse
+        depends_on:
+            - mysql-warehouse
+
+    mysql-warehouse:
+        build:
+            context: "./docker/mysql"
+        container_name: mysql-warehouse
+        restart: "no"
+        environment:
+            PROJECT_ID: 'DOCKER! -> warehouse'
+            MYSQL_DATABASE: warehouse
+            MYSQL_USER: warehouse
+            MYSQL_PASSWORD: warehouse
+            MYSQL_ROOT_PASSWORD: warehouse
+        expose:
+            - 3306
+        ports:
+            - '33064:3306'
+        volumes:
+            -   type: bind
+                source: './docker/mysql/data'
+                target: '/var/lib/mysql'
+            -   type: bind
+                source: './docker/mysql/conf'
+                target: '/etc/mysql/conf.d'
+            -   type: bind
+                source: '/root/.bashrc'
+                target: '/root/.bashrc'
+            -   type: bind
+                source: '/home/laci/.bc'
+                target: '/usr/local/bin/.bc'

@@ -1,0 +1,22 @@
+<h3>Raktárak listája</h3>
+
+<ul>
+    {% for storage in storages %}
+        <li>
+            <div>
+                <a href="#"
+                   onclick="tllAjax.showStorageDetails({{ storage.id }});"
+                   title="Kattints a raktárkészlet megtekkintéséhez!"
+                >
+                    {{ storage.name }}
+                </a>
+                &ndash;
+                <span class="szurke dolt">
+                    {{ storage.postalCode }}
+                    {{ storage.city }},
+                    {{ storage.street }}
+                </span>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

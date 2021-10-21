@@ -1,0 +1,16 @@
+{% extends 'layout-main.html.twig' %}
+
+{% block title %}Raktárak listája...{% endblock %}
+
+{% block details %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        // alert('Ahoj!');
+        $(document).ready(function () {
+            tllAjax.showStorages();
+        });
+    </script>
+{% endblock %}

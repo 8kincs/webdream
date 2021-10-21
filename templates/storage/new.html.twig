@@ -1,0 +1,57 @@
+<h4>Új raktár felvétele</h4>
+
+<form class="tll-form" method="post" onsubmit="return tllAjax.save(this, 'storage')">
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <label for="name">raktár neve</label>
+                <input class="form-control focus-here" type="text" placeholder=""
+                       name="name" id="name" value="">
+            </div>
+
+            <div class="col-1">
+                <label for="postalCode">irányítószám</label>
+                <input class="form-control" type="text" placeholder=""
+                       name="postalCode" id="postalCode" value="">
+            </div>
+
+            <div class="col-3">
+                <label for="city">helység</label>
+                <input class="form-control" type="text" placeholder=""
+                       name="city" id="city" value="">
+            </div>
+
+            <div class="col-4">
+                <label for="street">utca, házszám...</label>
+                <input class="form-control" type="text" placeholder=""
+                       name="street" id="street" value="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="button-holder col-12" >
+                <button type="submit"
+                        style="float: right; "
+                        class="btn btn-primary"
+                >
+                    Mentés
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary escape"
+                        style="float: right; "
+                        onclick="tllAjax.escape('#div-form');">
+                    Mégsem
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary escape"
+                        style="float: left; "
+                        onclick="tllAjax.defaultInput();">
+                    Ahoj!
+                </button>
+
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+</form>

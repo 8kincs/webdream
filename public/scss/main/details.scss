@@ -1,0 +1,29 @@
+@use "../partials/variables" as *;
+@use "../partials/shared" as *;
+
+#div-details {
+    & {
+        padding-left: 18px;
+    }
+
+    th {
+        text-align: center;
+        padding: 3px 12px;
+        font-style: italic;
+        font-weight: normal;
+        border-bottom: 1px solid $gray;
+    }
+
+    th:first-child {
+        text-align: left;
+    }
+
+    td {
+        padding: 3px 6px;
+    }
+
+    .number {
+        text-align: center;
+        padding-left: 12px;
+    }
+}

@@ -1,0 +1,32 @@
+@use "partials/variables" as *;
+@use "partials/shared" as *;
+
+li {
+    line-height: 1.3em;
+    padding-bottom: 12px;
+}
+
+.link {
+    cursor: pointer;
+    color: $dark-background !important;
+}
+
+#div-list {
+    border-right: solid 1px $dark-background;
+}
+
+.szurke {
+    color: gray;
+}
+
+.piros {
+    color: red;
+}
+
+.kek {
+    color: dodgerblue;
+}
+
+.dolt {
+    font-style: italic;
+}

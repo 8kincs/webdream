@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {# fejléc, menü #}
+    <div class="row">
+        <div id="div-header" class="col-12">
+            {% include '_partials/_navbar.html.twig' %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="div-form" class="col-12">
+
+        </div>
+    </div>
+
+    <div class="row">
+            <div id="div-list" class="col-5 ">
+
+            </div>
+
+            <div id="div-details" class="col-7 ">
+
+            </div>
+    </div>
+
+    {# lábléc #}
+    <div class="row">
+        <div id="div-footer" class="col-12">
+            {% include '_partials/_footer.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+<h4>Termék mozgatása</h4>
+<form class="tll-form" method="post" onsubmit="return tllAjax.doAddProduct(this)">
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-5">
+                <label for="storage">Válassz raktárat</label>
+                <select class="form-control focus-here" name="storage" id="storage">
+                    {% for storage in storages %}
+                        <option value="{{ storage.id }}">{{ storage.name }} &ndash; {{ storage.address }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-5">
+                <label for="product">Válassz terméket</label>
+                <select class="form-control " name="product" id="product">
+                    {% for product in products %}
+                        <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label for="pieces">mennyiség</label>
+                <input class="form-control" type="text" placeholder=""
+                       name="pieces" id="pieces" value="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div style="text-align: right">
+                    >0 &ndash;> raktárBA&nbsp;&nbsp;&nbsp;<br>
+                    <0 &ndash;> raktárBÓL
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="button-holder col-12" >
+                <button type="submit"
+                        style="float: right; "
+                        class="btn btn-primary"
+                >
+                    Termék mozgatása
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary escape"
+                        style="float: right; "
+                        onclick="tllAjax.escape('#div-form');">
+                    Mégsem
+                </button>
+
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+</form>

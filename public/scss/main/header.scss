@@ -1,0 +1,30 @@
+@use "../partials/variables" as *;
+@use "../partials/shared" as *;
+
+#div-header {
+    & {
+        //border-bottom: $header-footer-line;
+        margin-bottom: 24px;
+        background-color: #118a6e;
+        //noinspection CssUnknownTarget
+        background-image: url("/images/pupava-keskeny.png");
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    #div-navbar {
+        & {
+            margin-bottom: 45px;
+        }
+    }
+
+    #div-navbar:hover {
+        & {
+            background-color: rgba(11, 94, 74, 0.7);
+        }
+
+        .nav-item:hover {
+            background-color: rgb(3, 68, 53);
+        }
+    }
+}

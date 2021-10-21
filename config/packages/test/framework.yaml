@@ -1,0 +1,3 @@
+framework:
+    profiler: { collect: false }
+    test: true
